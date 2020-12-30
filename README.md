@@ -269,3 +269,58 @@ Read the [developers page].
 [medium-2]: https://medium.com/genymobile/gnirehtet-2-our-reverse-tethering-tool-for-android-now-available-in-rust-999960483d5a
 [blog-2-en]: https://blog.rom1v.com/2017/09/gnirehtet-rewritten-in-rust/
 [blog-2-fr]: https://blog.rom1v.com/2017/09/gnirehtet-reecrit-en-rust/
+
+
+最近我发现了一款开源软件 Gnirehtet，作者是 GitHub 上的 Genymobile。
+
+软件在电脑端运行之后可以用数据线共享电脑网络，这样手机无需连接 WiFi 无需数据流量，一样可以高速上网。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ncicWtGoBHtLia4C5mKp9Mv8AKnZMWIOggZxqMGTHp2LHnRerGeHJx0N8zSkO7v0XxVnTOyQKFc4FAQ7MbuC8bgw/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+它的原理就是通过 adb 为 Android 设备提供 reverse tethering（反向网络连接），允许设备在插入计算机后，通过建立一个虚拟专用网络（VPN），使用电脑的网络而不用消耗自身的流量。
+
+它有一些使用限制条件，只能是安卓手机，还要求是安卓 5.1 以上系统，当然无需 root，软件支持 Windows 系统，但是不支持 Windows XP 系统。
+
+其实这些限制基本上对大部分用户来说都不是问题，现在就教大家如何来设置。
+
+**设置方法**
+
+在手机设置中打开开发者选项，并勾选允许 USB 调试。
+
+如果手机设置找不到开发者选项的打开方式，那就说明之前还没开启过，由于各个牌子手机开启的方式不同，大家简单去搜一下就能解决。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/ncicWtGoBHtLNwicr6t4cvEH1y63PKv73Qjly6OYo9HlVTxX5BJUa57KqloiaicHdrSkFLnpxcDticRZ3TRpYHU4ocg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+在用数据线连接电脑时选择传输文件。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ncicWtGoBHtLNwicr6t4cvEH1y63PKv73QbhQWDlBMHVtTibxoAmJCQLibiau71r3qZroVlpHrCDxfq5icIe6vziaLic1w/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+在后台获取电脑端的软件，解压后打开 ，双击打开 gnirehtet-run 启动软件。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/ncicWtGoBHtLNwicr6t4cvEH1y63PKv73Q9STMeA7xutq0kl0souqAlBmQnDVRF0IswAI2QPxm53p2KHbVHkdM3g/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+这时电脑会有一个黑色命令窗口弹出。如果出现以下界面说明连接成功了。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/ncicWtGoBHtLNwicr6t4cvEH1y63PKv73QJXEreBXcVu4m7MTdxkboAloianTJGukCYtpXD1fuAObS9uJ0j33LqEg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+手机端也会出现以下提示，分别点击继续安装和确定。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ncicWtGoBHtLNwicr6t4cvEH1y63PKv73Qd7Fxd1nWzKW88B7SaVrF97Dd1MpX6LzVWxOPMCpakryYVzIdojtiafg/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+在手机上开启飞行模式测试一下，确实不需要数据流量也可以正常上网了。
+
+不过使用时也不要不要关闭电脑上的命令窗口。
+
+想要断开连接时，在手机上通知栏中点击 Stop Gnirehtet 就可以了。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_jpg/ncicWtGoBHtLNwicr6t4cvEH1y63PKv73Q0enoF6nZMicyeGONjQVia4y35RHpmNwos1zVgw3g9UrjO2BtISib3syeg/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+如此以来，终于让手机可以享用高速上网了。
+
+为了检验速度，我在家里的网络环境下进行了测速比较，用这个方法比之前的连 WiFi 时的速度还快了不少。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/ncicWtGoBHtLia4C5mKp9Mv8AKnZMWIOggq3NDoNGa5cBn9zFX7zT20SsKawl07Hm8gbKiaISIH2icSBJJTI2DRB1A/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+最近这两天不是一直在玩《使命召唤》嘛，昨晚还和小伙伴们开黑，玩网游的话一定得保证网速稳定，大家可以试试看用这种方式连接上网，速度还是非常给力的。
+
+**结语**
